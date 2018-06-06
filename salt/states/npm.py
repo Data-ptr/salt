@@ -40,7 +40,8 @@ def installed(name,
               user=None,
               force_reinstall=False,
               registry=None,
-              env=None):
+              env=None,
+              silent=True):
     '''
     Verify that the given package is installed and is at the correct version
     (if specified).
@@ -194,6 +195,7 @@ def installed(name,
             'registry': registry,
             'env': env,
             'pkgs': pkg_list,
+            'silent': silent,
         }
 
         call = __salt__['npm.install'](**cmd_args)
